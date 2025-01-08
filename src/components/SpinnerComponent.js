@@ -6,7 +6,7 @@ export const SpinnerComponent = ({ scrollPosition }) => {
       <div
         style={{
           ...(scrollPosition > 5 && {
-            transform: `scale(${scrollPosition})`,
+            transform: `scale(${scrollPosition / 2})`,
           }),
         }}
         className={` outline absolute top-1/3 -translate-y-1/2 duration-300 scale-[55%] xs:scale-[70%]  max-w-screen h-[400px] w-[400px] `}

@@ -9,7 +9,6 @@ function App() {
   const scrollableDivRef = useRef(null);
   const handleScroll = () => {
     const position = scrollableDivRef.current.scrollTop; // Get the vertical scroll position of the element
-    console.log(position, "here");
     setScrollPosition(position);
   };
 

@@ -50,6 +50,14 @@ svg,
   font-family: "Allura", cursive;
 }
 
+.minute-hand {
+  animation: rotate 2s linear infinite;
+}
+
+.hour-hand {
+  animation: rotate 120s linear infinite;
+}
+
 @keyframes rotate {
   from {
     transform: rotate(0deg);
