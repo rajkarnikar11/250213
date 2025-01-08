@@ -3,16 +3,51 @@
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Allura&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
 svg,
 .logo {
   font-family: "Montserrat", sans-serif;
 }
-.logo {
+.text-outline {
   text-shadow: 5px 5px 0 #28282b, 5px -5px 0 #28282b, -5px 5px 0 #28282b,
     -5px -5px 0 #28282b;
 }
+
+.text-outline-small {
+  text-shadow: 2px 2px 0 #28282b, 2px -2px 0 #28282b, -2px 2px 0 #28282b,
+    -2px -2px 0 #28282b;
+}
+
 .spin {
   animation: rotate 60s linear infinite; /* Infinite rotation */
+}
+.container {
+  height: 100vh;
+  scroll-snap-type: y mandatory; /* Snap scrolling on the Y-axis */
+  overflow-y: scroll; /* Enable vertical scrolling */
+  width: 100vw;
+}
+.section {
+  height: 100vh; /* Full viewport height */
+  scroll-snap-align: start; /* Snap alignment for each section */
+}
+.cursive-text {
+  font-family: "Allura", cursive;
 }
 
 @keyframes rotate {

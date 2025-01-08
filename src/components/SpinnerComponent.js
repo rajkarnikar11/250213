@@ -1,13 +1,19 @@
-export const SpinnerComponent = () => {
+import { useEffect, useState, us, useRef } from "react";
+
+export const SpinnerComponent = ({ scrollPosition }) => {
   return (
-    <div className=" bg-[#28282B] h-screen w-screen flex justify-center items-center">
-      <div className=" relative h-[400px] w-[400px]">
+    <div className="flex items-center justify-center h-screen overflow-hidden snap-start">
+      <div
+        className={` duration-300 scale-[55%] xs:scale-[70%] relative max-w-screen h-[400px] w-[400px] ${
+          scrollPosition > 5 ? " !scale-[25500%]" : ""
+        } `}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="400"
           height="400"
           viewBox="0 0 400 400"
-          className=" -rotate-90 spin "
+          className="-rotate-90 spin"
         >
           <defs>
             <path
@@ -16,15 +22,15 @@ export const SpinnerComponent = () => {
             />
           </defs>
           <text
-            letterSpacing="-4"
+            letterSpacing="-2"
             fontWeight="bold"
-            fontSize="48"
+            fontSize="44"
             fill="#B76E79"
           >
             <textPath href="#circlePath">
               {" "}
               WHEN TWO WILD SOULS UNITE <tspan font-size="80">•</tspan>
-              <tspan fontSize="48" letterSpacing="-5" opacity="0.7">
+              <tspan fontSize="48" letterSpacing="-3" opacity="0.7">
                 {" "}
                 25 02 13{" "}
               </tspan>
@@ -32,11 +38,17 @@ export const SpinnerComponent = () => {
             </textPath>
           </text>
         </svg>
-        <p className="logo absolute top-1/2 left-1/2 -translate-x-[75%] -translate-y-[55%] text-[#B76E79] text-[220px]">
+        <p className="logo text-outline absolute top-1/2 left-1/2 -translate-x-[75%] -translate-y-[55%] text-[#B76E79] text-[220px]">
           J
         </p>
-        <p className="logo absolute top-1/2 left-1/2 -translate-x-[35%] -translate-y-[50%]  text-[#B76E79] text-[220px]">
+        <p className="logo text-outline absolute top-1/2 left-1/2 -translate-x-[35%] -translate-y-[50%]  text-[#B76E79] text-[220px]">
           R
+        </p>
+        <p className=" font-semibold top-[20%] absolute right-1/2 text-[#b76e79] cursive-text text-4xl text-outline-small">
+          Jari
+        </p>
+        <p className=" bottom-[27.7%] font-semibold absolute left-[55%] text-[#b76e79] cursive-text text-4xl text-outline-small">
+          Rahul
         </p>
       </div>
     </div>
