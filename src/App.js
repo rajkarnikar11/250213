@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { SpinnerComponent } from "./components/SpinnerComponent";
 import { useEffect, useRef, useState } from "react";
+import BackInTime from "./components/BackInTime";
 
 function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -34,7 +35,10 @@ function App() {
     >
       <div className="fixed top-2 left-1/2">{scrollPosition}</div>
       <SpinnerComponent scrollPosition={scrollPosition} />
-      <div className="h-screen snap-start">asdad</div>
+      <div className="h-screen text-white snap-start">
+        <BackInTime />
+      </div>
+      <div className="h-screen text-white snap-start">page 2</div>
     </div>
   );
 }

@@ -2,11 +2,14 @@ import { useEffect, useState, us, useRef } from "react";
 
 export const SpinnerComponent = ({ scrollPosition }) => {
   return (
-    <div className="flex items-center justify-center h-screen overflow-hidden snap-start">
+    <div className="flex relative items-start justify-center h-[150vh] overflow-hidden snap-start">
       <div
-        className={` duration-300 scale-[55%] xs:scale-[70%] relative max-w-screen h-[400px] w-[400px] ${
-          scrollPosition > 5 ? " !scale-[25500%]" : ""
-        } `}
+        style={{
+          ...(scrollPosition > 5 && {
+            transform: `scale(${scrollPosition})`,
+          }),
+        }}
+        className={` outline absolute top-1/3 -translate-y-1/2 duration-300 scale-[55%] xs:scale-[70%]  max-w-screen h-[400px] w-[400px] `}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
