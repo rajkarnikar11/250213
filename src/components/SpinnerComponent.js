@@ -1,11 +1,18 @@
-import { useEffect, useState, us, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export const SpinnerComponent = ({ scrollPosition }) => {
+  const [showAnimation, setShowAnimation] = useState(true);
+  useEffect(() => {
+    if (scrollPosition > 1200) {
+      setShowAnimation(false);
+      console.log(showAnimation);
+    }
+  }, [scrollPosition]);
   return (
     <div className="flex relative items-start justify-center h-[150vh] overflow-hidden snap-start">
       <div
         style={{
-          ...(scrollPosition > 5 && {
+          ...((scrollPosition > 5) & showAnimation && {
             transform: `scale(${scrollPosition / 2})`,
           }),
         }}

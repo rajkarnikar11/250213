@@ -19,6 +19,22 @@ body {
   height: 100%;
 }
 
+.scroll-indicator {
+  animation: chevronUpAnimation 1.5s infinite linear;
+}
+
+@keyframes chevronUpAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(-0px);
+  }
+}
+
 svg,
 .logo {
   font-family: "Montserrat", sans-serif;
@@ -51,11 +67,20 @@ svg,
 }
 
 .minute-hand {
-  animation: rotate 2s linear infinite;
+  animation: rotate 2s linear infinite; /* 1 minute for a full rotation, 10x faster */
 }
 
 .hour-hand {
-  animation: rotate 120s linear infinite;
+  animation: rotate 24s linear infinite; /* 12 hours for a full rotation, 10x faster */
+}
+
+.Typewriter__wrapper {
+  color: #b76e79 !important;
+  font-family: "Montserrat", sans-serif;
+}
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
 }
 
 @keyframes rotate {
@@ -64,5 +89,21 @@ svg,
   }
   to {
     transform: rotate(-360deg);
+  }
+}
+
+.year-scroll {
+  outline: 1px solid red;
+  transform: translateY(-1215%);
+  animation: scroll 2s ease-in-out;
+  color: #b76e79;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-1215%);
   }
 }

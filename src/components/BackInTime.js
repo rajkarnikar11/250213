@@ -4,8 +4,8 @@ import Typewriter from "typewriter-effect";
 const BackInTime = () => {
   const [isInView, setIsInView] = useState(false);
   const elementRef = useRef(null);
-  const typewriterRef = useRef(null); // Ref for Typewriter instance
-  const hasTyped = useRef(false); // To track if the typewriter effect has already run
+  const [startAnimation, setStartAnimation] = useState(false);
+  const [fitText, setFitText] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -27,37 +27,36 @@ const BackInTime = () => {
   }, []);
 
   useEffect(() => {
-    if (isInView && typewriterRef.current && !hasTyped.current) {
-      // Start typing once when in view and prevent multiple typings
-      typewriterRef.current
-        .typeString("Hello")
-        .pauseFor(500)
-        .typeString(" World!")
-        .start();
-
-      // Mark as typed so it won't run again
-      hasTyped.current = true;
+    if (isInView) {
+      setTimeout(() => setFitText(true), 300);
+      setTimeout(() => setStartAnimation(true), 1000);
     }
   }, [isInView]);
 
   return (
-    <div className="relative h-screen outline" ref={elementRef}>
-      <Typewriter
-        onInit={(typewriter) => {
-          typewriterRef.current = typewriter; // Store the instance in the ref
-        }}
-        options={{
-          autoStart: false, // Disable autoStart so we can control it manually
-          loop: false,
-        }}
-      />
+    <div className="relative text-[#b76e79] h-screen " ref={elementRef}>
+      <h6
+        className={`${
+          fitText ? "scale-[100%]" : " scale-[1000%] translate-y-[500%]"
+        } absolute montserrat text-[7vw] text-center px-2 sm:text-[5vw] uppercase w-screen  font-bold duration-500 transform -translate-x-1/2 translate-y-1/2 top-5 left-1/2 `}
+      >
+        Let's take a step back in time...
+      </h6>
 
       <div className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-        <div className="w-full minute-hand h-[200px] absolute ">
+        <div
+          className={`w-full ${
+            startAnimation ? "minute-hand" : ""
+          } h-[200px] absolute `}
+        >
           <div className=" h-[80px] w-1 absolute bottom-1/2 left-1/2 transform -translate-x-1/2  bg-[gray]" />
         </div>
 
-        <div className="w-full hour-hand h-[200px] absolute ">
+        <div
+          className={` w-full ${
+            startAnimation ? "hour-hand" : ""
+          } h-[200px] absolute `}
+        >
           <div className=" h-[50px] w-2 absolute bottom-1/2 left-1/2 transform -translate-x-1/2  bg-black" />
         </div>
 
