@@ -34,7 +34,7 @@ const BackInTime = () => {
   }, [isInView]);
 
   return (
-    <div className="relative text-[#b76e79] h-screen " ref={elementRef}>
+    <div className="relative text-[#dea193] h-screen " ref={elementRef}>
       <h6
         className={`${
           fitText ? "scale-[100%]" : " scale-[1000%] translate-y-[500%]"

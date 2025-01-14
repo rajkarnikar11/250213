@@ -4,6 +4,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Allura&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap");
 
 html {
   scroll-behavior: smooth;
@@ -75,12 +76,15 @@ svg,
 }
 
 .Typewriter__wrapper {
-  color: #b76e79 !important;
+  color: #dea193 !important;
   font-family: "Montserrat", sans-serif;
 }
 
 .montserrat {
   font-family: "Montserrat", sans-serif;
+}
+.story {
+  font-family: "Caveat", cursive;
 }
 
 @keyframes rotate {
@@ -93,10 +97,9 @@ svg,
 }
 
 .year-scroll {
-  outline: 1px solid red;
-  transform: translateY(-1215%);
+  transform: translateY(-1000%);
   animation: scroll 2s ease-in-out;
-  color: #b76e79;
+  color: #dea193;
 }
 
 @keyframes scroll {
@@ -104,6 +107,6 @@ svg,
     transform: translateY(0%);
   }
   to {
-    transform: translateY(-1215%);
+    transform: translateY(-1000%);
   }
 }

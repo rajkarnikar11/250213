@@ -35,7 +35,7 @@ export const SpinnerComponent = ({ scrollPosition }) => {
             letterSpacing="-2"
             fontWeight="bold"
             fontSize="44"
-            fill="#B76E79"
+            fill="#dea193"
           >
             <textPath href="#circlePath">
               {" "}
@@ -48,16 +48,16 @@ export const SpinnerComponent = ({ scrollPosition }) => {
             </textPath>
           </text>
         </svg>
-        <p className="logo text-outline absolute top-1/2 left-1/2 -translate-x-[75%] -translate-y-[55%] text-[#B76E79] text-[220px]">
+        <p className="logo text-outline absolute top-1/2 left-1/2 -translate-x-[75%] -translate-y-[55%] text-[#dea193] text-[220px]">
           J
         </p>
-        <p className="logo text-outline absolute top-1/2 left-1/2 -translate-x-[35%] -translate-y-[50%]  text-[#B76E79] text-[220px]">
+        <p className="logo text-outline absolute top-1/2 left-1/2 -translate-x-[35%] -translate-y-[50%]  text-[#dea193] text-[220px]">
           R
         </p>
-        <p className=" font-semibold top-[20%] absolute right-1/2 text-[#b76e79] cursive-text text-4xl text-outline-small">
+        <p className=" font-semibold top-[20%] absolute right-1/2 text-[#dea193] cursive-text text-4xl text-outline-small">
           Jari
         </p>
-        <p className=" bottom-[27.7%] font-semibold absolute left-[55%] text-[#b76e79] cursive-text text-4xl text-outline-small">
+        <p className=" bottom-[27.7%] font-semibold absolute left-[55%] text-[#dea193] cursive-text text-4xl text-outline-small">
           Rahul
         </p>
       </div>
