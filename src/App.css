@@ -41,13 +41,13 @@ svg,
   font-family: "Montserrat", sans-serif;
 }
 .text-outline {
-  text-shadow: 5px 5px 0 #28282b, 5px -5px 0 #28282b, -5px 5px 0 #28282b,
-    -5px -5px 0 #28282b;
+  text-shadow: 5px 5px 0 #fffbf7, 5px -5px 0 #fffbf7, -5px 5px 0 #fffbf7,
+    -5px -5px 0 #fffbf7;
 }
 
 .text-outline-small {
-  text-shadow: 2px 2px 0 #28282b, 2px -2px 0 #28282b, -2px 2px 0 #28282b,
-    -2px -2px 0 #28282b;
+  text-shadow: 2px 2px 0 #fffbf7, 2px -2px 0 #fffbf7, -2px 2px 0 #fffbf7,
+    -2px -2px 0 #fffbf7;
 }
 
 .spin {
@@ -101,12 +101,37 @@ svg,
   animation: scroll 2s ease-in-out;
   color: #dea193;
 }
-
+.num-scroll {
+  animation: numscroll 2s ease-in-out;
+  color: #dea193;
+  transform: translateY(calc(-1 * (var(--count)) * 200px));
+}
+@keyframes numscroll {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(calc(-1 * (var(--count)) * 200px));
+  }
+}
 @keyframes scroll {
   from {
     transform: translateY(0%);
   }
   to {
     transform: translateY(-1000%);
+  }
+}
+
+.animation-svg {
+  animation: write 2s ease-in;
+  overflow: hidden;
+}
+@keyframes write {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
   }
 }

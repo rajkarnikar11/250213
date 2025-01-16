@@ -69,7 +69,7 @@ function App() {
   return (
     <div
       ref={scrollableDivRef}
-      className="h-screen max-w-screen overflow-x-hidden overflow-y-scroll bg-[#28282B] snap-y snap-mandatory"
+      className="h-screen max-w-screen overflow-x-hidden overflow-y-scroll bg-[	#fffbf7] snap-y snap-mandatory"
     >
       <ScrollComponent scrollPosition={scrollPosition} />
       <div className="fixed top-2 left-1/2">{scrollPosition}</div>

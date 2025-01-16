@@ -11,6 +11,7 @@
     "react-typed": "^2.0.12",
     "react-typewriter-effect": "^1.1.0",
     "typewriter-effect": "^2.21.0",
+    "vara": "^1.4.1",
     "web-vitals": "^4.2.4"
   },
   "scripts": {
@@ -38,6 +39,7 @@
     ]
   },
   "devDependencies": {
+    "@types/vara": "^1.1.4",
     "autoprefixer": "^10.4.20",
     "gh-pages": "^6.3.0",
     "postcss": "^8.4.49",
