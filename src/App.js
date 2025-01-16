@@ -23,7 +23,7 @@ const ScrollComponent = ({ scrollPosition }) => {
           <polyline points="6 19 12 13 18 19"></polyline>
         </svg>
       </div>
-      {scrollPosition > 1200 ? "Keep Scrolling" : "Scroll"}
+      {scrollPosition > 1020 ? "Keep Scrolling" : "Scroll"}
       <div className="scroll-indicator">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +77,7 @@ function App() {
       <div className="h-screen text-white snap-start">
         <BackInTime />
       </div>
-      <div className="text-white  snap-start">
+      <div className="text-white snap-start">
         <DateComponent />
       </div>
     </div>

@@ -1,11 +1,13 @@
-import React from "react";
+import React, { use, useEffect } from "react";
 
-const AnimatedSvg = () => {
+const AnimatedSvg = ({ text, startAnimation, size }) => {
   return (
-    <div className=" animation-svg">
+    <div className={` text-left ${startAnimation ? "animation-svg" : ""} `}>
       {" "}
-      <div className="text-[50px] sm:text-[100px]  text-center whitespace-nowrap cursive-text">
-        When two wild souls unite
+      <div
+        className={` ${size} text-[30px] sm:text-[100px]  text-center whitespace-nowrap cursive-text `}
+      >
+        {text}
       </div>
     </div>
   );

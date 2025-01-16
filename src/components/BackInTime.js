@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Typewriter from "typewriter-effect";
+import AnimatedSvg from "./AnimatedSvg";
 
 const BackInTime = () => {
   const [isInView, setIsInView] = useState(false);
@@ -34,16 +35,18 @@ const BackInTime = () => {
   }, [isInView]);
 
   return (
-    <div className="relative text-[#dea193] h-screen " ref={elementRef}>
+    <div
+      className="relative text-[#dea193] h-screen flex justify-evenly items-center flex-col "
+      ref={elementRef}
+    >
       <h6
         className={`${
           fitText ? "scale-[100%]" : " scale-[1000%] translate-y-[500%]"
-        } absolute montserrat text-[7vw] text-center px-2 sm:text-[5vw] uppercase w-screen  font-bold duration-500 transform -translate-x-1/2 translate-y-1/2 top-5 left-1/2 `}
+        } opacity-70  montserrat text-[12vw] text-center px-2 sm:text-[5vw] uppercase w-screen  font-bold duration-500 `}
       >
-        Let's take a step back in time...
+        But First!!!
       </h6>
-
-      <div className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+      <div className="relative w-[200px] mx-auto outline">
         <div
           className={`w-full ${
             startAnimation ? "minute-hand" : ""
@@ -91,6 +94,17 @@ const BackInTime = () => {
             9
           </text>
         </svg>
+      </div>
+      <div
+        className={` ${
+          startAnimation ? "opacity-100" : "opacity-0"
+        } sm:w-[1000px]  `}
+      >
+        <AnimatedSvg
+          size={"!text-[30px]"}
+          startAnimation={startAnimation}
+          text="Let's take a step back in time..."
+        />
       </div>
     </div>
   );

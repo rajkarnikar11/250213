@@ -126,12 +126,15 @@ svg,
 .animation-svg {
   animation: write 2s ease-in;
   overflow: hidden;
+  text-align: center;
 }
 @keyframes write {
   from {
     width: 0%;
+    text-align: center;
   }
   to {
     width: 100%;
+    text-align: center;
   }
 }

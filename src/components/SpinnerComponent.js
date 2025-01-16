@@ -14,16 +14,15 @@ export const SpinnerComponent = ({ scrollPosition }) => {
   const svgRef = useRef(null);
 
   return (
-    <div className="flex relative items-start justify-center h-[150vh] overflow-hidden snap-start">
+    <div className="relative flex items-start justify-center h-screen overflow-hidden snap-start">
       <div
-        style={{
-          ...((scrollPosition > 5) & showAnimation && {
-            transform: `scale(${scrollPosition / 2})`,
-          }),
-        }}
-        className={`  absolute text-[#dea193] top-1/3 -translate-y-1/2 duration-300 scale-[55%] xs:scale-[70%]   h-[400px]  sm:w-[1000px] `}
+        className={`  absolute text-[#dea193] top-1/2 -translate-y-1/2 duration-300 scale-[55%] xs:scale-[70%]   h-[400px]  sm:w-[1000px] `}
       >
-        <AnimatedSVG />
+        <AnimatedSVG
+          size={"!text-[50px]"}
+          startAnimation={true}
+          text="When two wild souls unite"
+        />
         <div className="flex justify-center max-w-screen opacity-70 ">
           <NumberCounter startAnimation={true} count={2} />
           <NumberCounter startAnimation={true} count={5} />
