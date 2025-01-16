@@ -36,7 +36,7 @@ const BackInTime = () => {
 
   return (
     <div
-      className="relative text-[#dea193] h-screen flex justify-evenly items-center flex-col "
+      className="relative text-[#dea193] outline h-screen flex py-8 justify-evenly items-center flex-col "
       ref={elementRef}
     >
       <h6
