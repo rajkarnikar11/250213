@@ -21,10 +21,10 @@ export const SpinnerComponent = ({ scrollPosition }) => {
             transform: `scale(${scrollPosition / 2})`,
           }),
         }}
-        className={`  absolute text-[#dea193] top-1/3 -translate-y-1/2 duration-300 scale-[55%] xs:scale-[70%]  max-w-screen h-[400px] w-[1000px] `}
+        className={`  absolute text-[#dea193] top-1/3 -translate-y-1/2 duration-300 scale-[55%] xs:scale-[70%]   h-[400px]  sm:w-[1000px] `}
       >
         <AnimatedSVG />
-        <div className="flex justify-between opacity-70 ">
+        <div className="flex justify-center max-w-screen opacity-70 ">
           <NumberCounter startAnimation={true} count={2} />
           <NumberCounter startAnimation={true} count={5} />
           <NumberCounter startAnimation={true} count={0} />
