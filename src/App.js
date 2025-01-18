@@ -91,7 +91,16 @@ function App() {
 
       <div className="relative flex items-center justify-center h-screen text-white snap-start">
         {width}
-        <HTMLFlipBook width={width} usePortrait height={500}>
+        <HTMLFlipBook
+          width={800}
+          height={500}
+          usePortrait
+          mobileScrollSupport
+          startPage={0}
+          showCover={false} // Optional: Hide cover if not needed
+          direction="ltr" // Ensure pages flip from left to right
+          onFlip={(e) => console.log("Page flipped", e)}
+        >
           <div className="demoPage">
             <DateComponent />
           </div>
