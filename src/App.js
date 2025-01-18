@@ -53,7 +53,7 @@ function App() {
     const position = scrollableDivRef.current.scrollTop; // Get the vertical scroll position of the element
     setScrollPosition(position);
   };
-  const [width, setWidth] = useState(window.innerWidth / 2 - 20);
+  const [width, setWidth] = useState(window.innerWidth - 20);
 
   useEffect(() => {
     const scrollableDiv = scrollableDivRef.current;
@@ -72,7 +72,7 @@ function App() {
   }, []);
   useEffect(() => {
     const handleResize = () => {
-      setWidth(window.innerWidth / 2 - 20);
+      setWidth(window.innerWidth - 20);
     };
 
     window.addEventListener("resize", handleResize);
@@ -89,17 +89,17 @@ function App() {
       <div className="fixed top-2 left-1/2">{scrollPosition}</div>
       <SpinnerComponent scrollPosition={scrollPosition} />
 
-      <div className="relative flex items-center justify-center h-screen text-white snap-start">
-        {width}
+      <div className="relative flex flex-col items-center justify-center h-screen text-white snap-start">
+        <span className="text-red-600 ">s{width}s</span>
         <HTMLFlipBook
-          width={800}
+          width={width}
           height={500}
-          usePortrait
-          mobileScrollSupport
-          startPage={0}
-          showCover={false} // Optional: Hide cover if not needed
-          direction="ltr" // Ensure pages flip from left to right
-          onFlip={(e) => console.log("Page flipped", e)}
+          usePortrait={true} // Enables portrait mode
+          mobileScrollSupport={true} // Ensures smooth scrolling on mobile
+          startPage={0} // Start from the first page
+          showCover={true} // Hide cover if not needed
+          direction="ltr" // Flip pages from left to right
+          onFlip={(e) => console.log("Page flipped", e)} // Log flip events
         >
           <div className="demoPage">
             <DateComponent />
