@@ -91,7 +91,7 @@ function App() {
 
       <div className="relative flex items-center justify-center h-screen text-white snap-start">
         {width}
-        <HTMLFlipBook width={width} height={500}>
+        <HTMLFlipBook width={width} usePortrait height={500}>
           <div className="demoPage">
             <DateComponent />
           </div>
