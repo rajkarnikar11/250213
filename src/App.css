@@ -138,3 +138,8 @@ svg,
     text-align: center;
   }
 }
+
+.demoPage {
+  outline: 1px solid red;
+  color: red;
+}

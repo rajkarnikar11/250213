@@ -57,17 +57,14 @@ const DateComponent = () => {
     }
   }, [isInView]);
   return (
-    <div className="relative h-screen" ref={elementRef}>
+    <div className="relative " ref={elementRef}>
       <h6
-        className={`${
-          fitText ? "scale-[100%]" : " scale-[1000%] translate-y-[500%] ]"
-        }   px-4 montserrat text-[7vw] text-center  sm:text-[5vw] uppercase w-screen  font-bold duration-500 transform  `}
+        className={`scale-[100%]   px-4 montserrat  text-center  sm:text-[50px] uppercase w-screen  font-bold duration-500 transform  `}
       >
         <YearScroll startAnimation={startAnimation} />
       </h6>
       <div>
         <ImageViewer
-          className="mt-5 "
           imageUrl={GemsImage}
           text="It all began at Gems Institute of Higher Education.
 A place full of energy, dreams, and the sound of footsteps echoing in hallways, where two paths crossed in a way that neither could have predicted."

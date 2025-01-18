@@ -4,6 +4,9 @@ import { SpinnerComponent } from "./components/SpinnerComponent";
 import { useEffect, useRef, useState } from "react";
 import BackInTime from "./components/BackInTime";
 import DateComponent from "./components/DateComponent";
+import HTMLFlipBook from "react-pageflip";
+import { Page } from "./components/Page";
+import Page2 from "./components/Page2";
 
 const ScrollComponent = ({ scrollPosition }) => {
   return (
@@ -50,6 +53,7 @@ function App() {
     const position = scrollableDivRef.current.scrollTop; // Get the vertical scroll position of the element
     setScrollPosition(position);
   };
+  const [width, setWidth] = useState(window.innerWidth / 2 - 20);
 
   useEffect(() => {
     const scrollableDiv = scrollableDivRef.current;
@@ -66,6 +70,16 @@ function App() {
       }
     };
   }, []);
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth / 2 - 20);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <div
       ref={scrollableDivRef}
@@ -74,12 +88,22 @@ function App() {
       <ScrollComponent scrollPosition={scrollPosition} />
       <div className="fixed top-2 left-1/2">{scrollPosition}</div>
       <SpinnerComponent scrollPosition={scrollPosition} />
-      <div className="h-screen text-white snap-start">
-        <BackInTime />
+
+      <div className="relative flex items-center justify-center h-screen text-white snap-start">
+        {width}
+        <HTMLFlipBook width={width} height={500}>
+          <div className="demoPage">
+            <DateComponent />
+          </div>
+          <div className="demoPage">
+            <Page2 />
+          </div>
+          <div className="demoPage">Page 3</div>
+          <div className="demoPage">Page 4</div>
+        </HTMLFlipBook>
+        {/* <BackInTime /> */}
       </div>
-      <div className="text-white snap-start">
-        <DateComponent />
-      </div>
+      <div className="text-white snap-start"></div>
     </div>
   );
 }

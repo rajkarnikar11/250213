@@ -42,7 +42,7 @@ const BackInTime = () => {
       <h6
         className={`${
           fitText ? "scale-[100%]" : " scale-[1000%] translate-y-[500%]"
-        } opacity-70  montserrat text-[12vw] text-center px-2 sm:text-[5vw] uppercase w-screen  font-bold duration-500 `}
+        } opacity-70  montserrat text-[12vw] text-center px-2 sm:text-[5vw] capitalize w-screen  font-bold duration-500 `}
       >
         But First!!!
       </h6>

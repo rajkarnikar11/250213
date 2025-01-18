@@ -3,11 +3,13 @@ import React from "react";
 const ImageViewer = ({ imageUrl, text, className }) => {
   return (
     <div
-      className={`flex h-[calc(100vh_-_110px)] items-center outline my-auto justify-center ${className}  `}
+      className={`flex relative items-center outline my-auto justify-center ${className}  `}
     >
-      <div className="relative p-4 mx-auto bg-gray-200 sm:w-1/2 outline">
-        <img className={`w-full   `} src={imageUrl} alt={text} />
-        <p className="mt-4 text-2xl text-gray-900 story ">{text}</p>
+      <div className="relative h-[400px] flex justify-center p-4 mx-auto bg-gray-200 s w-[full] outline">
+        <img className={` object-contain `} src={imageUrl} alt={text} />
+        <p className="absolute bottom-4 right-4 p-2 mt-4 text-2xl max-w-[90%] text-gray-900 bg-opacity-50 backdrop-blur-sm bg-[white] story ">
+          {text}
+        </p>
       </div>
     </div>
   );
