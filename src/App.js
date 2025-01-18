@@ -7,6 +7,7 @@ import DateComponent from "./components/DateComponent";
 import HTMLFlipBook from "react-pageflip";
 import { Page } from "./components/Page";
 import Page2 from "./components/Page2";
+import CoverImage from "./images/cover.jpg";
 
 const ScrollComponent = ({ scrollPosition }) => {
   return (
@@ -26,7 +27,7 @@ const ScrollComponent = ({ scrollPosition }) => {
           <polyline points="6 19 12 13 18 19"></polyline>
         </svg>
       </div>
-      {scrollPosition > 1020 ? "Keep Scrolling" : "Scroll"}
+      {scrollPosition > 500 ? "Tap to turn page" : "Scroll"}
       <div className="scroll-indicator">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -101,6 +102,13 @@ function App() {
           direction="ltr" // Flip pages from left to right
           onFlip={(e) => console.log("Page flipped", e)} // Log flip events
         >
+          <div className="demoPage">
+            <img
+              style={{ width: width }}
+              className=" h-[500px] rounded shadow-xl"
+              src={CoverImage}
+            />
+          </div>
           <div className="demoPage">
             <DateComponent />
           </div>
