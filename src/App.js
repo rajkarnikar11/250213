@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { SpinnerComponent } from "./components/SpinnerComponent";
-import { useEffect, useRef, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import BackInTime from "./components/BackInTime";
 import DateComponent from "./components/DateComponent";
 import HTMLFlipBook from "react-pageflip";
@@ -53,11 +53,60 @@ const ScrollComponent = ({ scrollPosition }) => {
 function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
   const scrollableDivRef = useRef(null);
+  const [isInView, setIsInView] = useState(false);
+  const [flipped, setFlipped] = useState(false);
+
   const handleScroll = () => {
     const position = scrollableDivRef.current.scrollTop; // Get the vertical scroll position of the element
     setScrollPosition(position);
   };
   const [width, setWidth] = useState(window.innerWidth - 20);
+  const book = useRef(null);
+  const page = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (page?.current instanceof Element) {
+      observer.observe(page?.current);
+    }
+
+    return () => {
+      if (page?.current instanceof Element) {
+        observer.unobserve(page?.current);
+      }
+    };
+  }, []);
+  const flipPages = async () => {
+    const currentPage = book.current.pageFlip().getCurrentPageIndex();
+    const totalFlips = currentPage - 1; // Number of pages to flip to reach the second page
+    const delay = 350; // Delay in milliseconds between each flip
+
+    for (let i = 0; i < totalFlips; i++) {
+      console.log(i, totalFlips);
+      book.current.pageFlip().flipPrev("bottom"); // Flip to the previous page
+      await new Promise((resolve) => setTimeout(resolve, delay)); // Wait for the animation
+    }
+  };
+
+  useEffect(() => {
+    book?.current?.pageFlip()?.turnToPage(9);
+  }, [book?.current?.pageFlip()]);
+
+  useEffect(() => {
+    console.log(isInView, !flipped);
+    if (isInView && !flipped) {
+      setTimeout(() => {
+        flipPages();
+        setFlipped(true);
+      }, 1500);
+    }
+  }, [isInView, flipped]);
 
   useEffect(() => {
     const scrollableDiv = scrollableDivRef.current;
@@ -84,6 +133,7 @@ function App() {
     // Cleanup listener on component unmount
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   return (
     <div
       ref={scrollableDivRef}
@@ -95,18 +145,23 @@ function App() {
 
       <div className="flex flex-col items-center justify-center h-screen text-white snap-start">
         <span className="text-red-600 ">s{width}s</span>
-        <div className="flipbook-container z-10 relative outline h-[500px] max-w-[500px]">
+        <div
+          ref={page}
+          className="flipbook-container shadow-2xl z-10 relative outline h-[500px] max-w-[500px]"
+        >
           <HTMLFlipBook
             width={width > 500 ? 500 : width}
-            height={500}
+            height={300}
+            ref={book}
             usePortrait={true} // Enables portrait mode
             mobileScrollSupport={true} // Ensures smooth scrolling on mobile
             startPage={0} // Start from the first page
             showCover={true} // Hide cover if not needed
             direction="ltr" // Flip pages from left to right
             onFlip={(e) => console.log("Page flipped", e)} // Log flip events
+            flippingTime={350}
           >
-            <div className="demoPage">
+            <div className="demoPage" data-density="hard">
               <img
                 style={{ width: width }}
                 className=" h-[500px] max-w-full rounded shadow-xl"
@@ -114,22 +169,56 @@ function App() {
                 alt="cover"
               />
             </div>
-            <div className="demoPage">
+            <div className="demoPage" data-density="hard">
               <ImageViewer
                 imageUrl={GemsImage}
                 text="It all began at Gems Institute of Higher Education.
 "
               />
             </div>
-            <div className="demoPage">
+            <div className="demoPage" data-density="hard">
               <ImageViewer
                 imageUrl={Page2image}
                 text="She noticed him through the classroom window...
 "
               />
             </div>
-            <div className="demoPage">Page 3</div>
-            <div className="demoPage">Page 4</div>
+            <div className="demoPage" data-density="hard">
+              <ImageViewer imageUrl={GemsImage} text="started talking..." />
+            </div>
+            <div className="demoPage" data-density="hard">
+              <ImageViewer
+                imageUrl={Page2image}
+                text="started Dating
+"
+              />
+            </div>
+            <div className="demoPage" data-density="hard">
+              <ImageViewer imageUrl={GemsImage} text="late night convos ..." />
+            </div>
+            <div className="demoPage" data-density="hard">
+              <ImageViewer
+                imageUrl={Page2image}
+                text="popped the question
+"
+              />
+            </div>
+            <div className="demoPage" data-density="hard">
+              <ImageViewer imageUrl={Page2image} text="She said yes" />
+            </div>
+            <div className="demoPage" data-density="hard">
+              <ImageViewer imageUrl={GemsImage} text="Forever in the clouds" />
+            </div>
+            <div className="demoPage" data-density="hard">
+              <div className="relative page-bg flex-col items-center flex  h-[468px] w-[calc(100%-16px)] p-4 m-4 ml-0 mx-auto  outline">
+                <div className="wishing">
+                  <h6 className=" py-4 px-14 text-[60px] text-center cursive-text ">
+                    Wishing <br /> you guys a happy married life...
+                  </h6>
+                </div>
+                <div className="wishing-shadow"></div>
+              </div>
+            </div>
           </HTMLFlipBook>
           {/* <BackInTime /> */}
           <img

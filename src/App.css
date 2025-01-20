@@ -143,8 +143,27 @@ svg,
   height: 500px; /* Match FlipBook height */
   overflow: hidden;
   position: relative;
-  max-width: 500px; /* Match FlipBook width */
+  /* max-width: 500px;  */
   margin: 0 auto; /* Optional: Center */
+}
+.flipbook-container::after {
+  position: absolute;
+  content: " ";
+  height: 100%;
+  width: 80px;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 40%,
+    rgba(0, 0, 0, 0.4) 80%,
+
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
 }
 
 .page-bg {
@@ -212,5 +231,82 @@ svg,
     95% 5%,
     /* First zigzag on the right */ 95% 0%,
     100% 0% /* Top-right straight */
+  );
+}
+
+.wishing {
+  background-color: #fffbf7;
+  height: 500px;
+  width: 450px;
+  max-height: 95%;
+  max-width: 95%;
+  color: #dea193;
+  box-shadow: 5px 5px 15px rgba(67, 62, 54, 1); /* Darker and more spread */
+  clip-path: polygon(
+    0% 0%,
+    5% 0%,
+    10% 50%,
+    20% 10%,
+    10% 25%,
+    0% 90%,
+    15% 80%,
+    5% 100%,
+    10% 100%,
+    100% 100%,
+    90% 50%,
+    80% 60%,
+    50% 100%,
+    5% 100%,
+    95% 95%,
+    90% 70%,
+    90% 40%,
+    100% 40%,
+    90% 40%,
+    100% 10%,
+    95% 5%,
+    95% 0%,
+    100% 0%
+  );
+  z-index: 1;
+  position: relative; /* Ensure pseudo-elements are positioned correctly */
+}
+
+.wishing-shadow {
+  content: " ";
+  position: absolute;
+  /* opacity: 0.5; */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: blur(400px);
+  transform: translate(15px, 10px) scale(0.85);
+  background: rgb(32, 31, 31); /* Inherit background color */
+  box-shadow: 5px 5px 15px rgba(67, 62, 54, 0.8); /* Shadow applied through pseudo-element */
+  z-index: 0; /* Put the shadow behind the main element */
+  clip-path: polygon(
+    0% 0%,
+    5% 0%,
+    10% 50%,
+    20% 10%,
+    10% 25%,
+    0% 90%,
+    15% 80%,
+    5% 100%,
+    10% 100%,
+    100% 100%,
+    90% 50%,
+    80% 60%,
+    50% 100%,
+    5% 100%,
+    95% 95%,
+    90% 70%,
+    90% 40%,
+    100% 40%,
+    90% 40%,
+    100% 10%,
+    95% 5%,
+    95% 0%,
+    100% 0%
   );
 }

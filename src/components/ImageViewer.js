@@ -5,7 +5,7 @@ const ImageViewer = ({ imageUrl, text, className, header }) => {
     <div
       className={`flex relative items-center outline my-auto justify-center ${className}  `}
     >
-      <div className="relative page-bg flex-col items-center flex  h-[482px] w-[calc(100%-8px)] p-4 m-2 ml-0 mx-auto  outline">
+      <div className="relative page-bg flex-col items-center flex  h-[468px] w-[calc(100%-16px)] p-4 m-4 ml-0 mx-auto  outline">
         {header ? (
           <h6 className=" p-2 h-32 mt-4 text-2xl max-w-[90%] text-gray-900 bg-opacity-90 border-2 border-[#433e36]  backdrop-blur-sm bg-[#fef8cc] story ">
             {header}
