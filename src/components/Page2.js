@@ -5,11 +5,6 @@ import Page2image from "../images/page2.jpg";
 const Page2 = () => {
   return (
     <div>
-      <h6
-        className={`text-[#dea193] text-[50px] montserrat flex overflow-hidden h-[100px] `}
-      >
-        2016
-      </h6>
       <div>
         <ImageViewer
           imageUrl={Page2image}

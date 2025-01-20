@@ -139,7 +139,78 @@ svg,
   }
 }
 
-.demoPage {
-  outline: 1px solid red;
-  color: red;
+.flipbook-container {
+  height: 500px; /* Match FlipBook height */
+  overflow: hidden;
+  position: relative;
+  max-width: 500px; /* Match FlipBook width */
+  margin: 0 auto; /* Optional: Center */
+}
+
+.page-bg {
+  position: relative;
+
+  overflow: hidden; /* Prevent pseudo-element overflow */
+}
+
+.page-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("./images/bg.jpg") no-repeat center center;
+  background-size: cover;
+  filter: blur(0.5px); /* Apply the blur effect */
+  z-index: -1; /* Keep it behind the content */
+}
+.paper-effect {
+  position: relative;
+  background-color: #fef8cc; /* Paper-like background */
+  color: #433e36; /* Text color */
+  padding: 20px;
+  border: 2px solid #433e36; /* Border color */
+
+  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+}
+
+.paper-effect::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  height: 30px;
+  width: 80px;
+  border: 1px solid gray;
+  background: linear-gradient(
+    130deg,
+    rgba(255, 255, 255, 0.6),
+    white,
+    rgba(255, 255, 255, 0.8),
+    white
+  );
+  clip-path: polygon(
+    0% 0%,
+    5% 0%,
+    10% 50%,
+    /* Top-left straight */ 5% 5%,
+    10% 25%,
+    /* First zigzag on the left */ 0% 90%,
+    15% 80%,
+    /* Last zigzag on the left */ 5% 100%,
+    10% 100%,
+    /* Bottom-left straight */ 100% 100%,
+    5% 100%,
+    /* Bottom-right straight */ 95% 95%,
+    90% 40%,
+    100% 40%,
+    90% 40%,
+
+    /* Last zigzag on the right */ 100% 10%,
+    95% 5%,
+    /* First zigzag on the right */ 95% 0%,
+    100% 0% /* Top-right straight */
+  );
 }

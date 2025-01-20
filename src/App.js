@@ -8,6 +8,9 @@ import HTMLFlipBook from "react-pageflip";
 import { Page } from "./components/Page";
 import Page2 from "./components/Page2";
 import CoverImage from "./images/cover.jpg";
+import ImageViewer from "./components/ImageViewer";
+import GemsImage from "./images/gems.png";
+import Page2image from "./images/page2.jpg";
 
 const ScrollComponent = ({ scrollPosition }) => {
   return (
@@ -90,35 +93,52 @@ function App() {
       <div className="fixed top-2 left-1/2">{scrollPosition}</div>
       <SpinnerComponent scrollPosition={scrollPosition} />
 
-      <div className="relative flex flex-col items-center justify-center h-screen text-white snap-start">
+      <div className="flex flex-col items-center justify-center h-screen text-white snap-start">
         <span className="text-red-600 ">s{width}s</span>
-        <HTMLFlipBook
-          width={width}
-          height={500}
-          usePortrait={true} // Enables portrait mode
-          mobileScrollSupport={true} // Ensures smooth scrolling on mobile
-          startPage={0} // Start from the first page
-          showCover={true} // Hide cover if not needed
-          direction="ltr" // Flip pages from left to right
-          onFlip={(e) => console.log("Page flipped", e)} // Log flip events
-        >
-          <div className="demoPage">
-            <img
-              style={{ width: width }}
-              className=" h-[500px] rounded shadow-xl"
-              src={CoverImage}
-            />
-          </div>
-          <div className="demoPage">
-            <DateComponent />
-          </div>
-          <div className="demoPage">
-            <Page2 />
-          </div>
-          <div className="demoPage">Page 3</div>
-          <div className="demoPage">Page 4</div>
-        </HTMLFlipBook>
-        {/* <BackInTime /> */}
+        <div className="flipbook-container z-10 relative outline h-[500px] max-w-[500px]">
+          <HTMLFlipBook
+            width={width > 500 ? 500 : width}
+            height={500}
+            usePortrait={true} // Enables portrait mode
+            mobileScrollSupport={true} // Ensures smooth scrolling on mobile
+            startPage={0} // Start from the first page
+            showCover={true} // Hide cover if not needed
+            direction="ltr" // Flip pages from left to right
+            onFlip={(e) => console.log("Page flipped", e)} // Log flip events
+          >
+            <div className="demoPage">
+              <img
+                style={{ width: width }}
+                className=" h-[500px] max-w-full rounded shadow-xl"
+                src={CoverImage}
+                alt="cover"
+              />
+            </div>
+            <div className="demoPage">
+              <ImageViewer
+                imageUrl={GemsImage}
+                text="It all began at Gems Institute of Higher Education.
+"
+              />
+            </div>
+            <div className="demoPage">
+              <ImageViewer
+                imageUrl={Page2image}
+                text="She noticed him through the classroom window...
+"
+              />
+            </div>
+            <div className="demoPage">Page 3</div>
+            <div className="demoPage">Page 4</div>
+          </HTMLFlipBook>
+          {/* <BackInTime /> */}
+          <img
+            style={{ width: width }}
+            className=" h-[500px] absolute top-0 -z-[1] max-w-full rounded shadow-xl"
+            src={CoverImage}
+            alt="cover"
+          />
+        </div>
       </div>
       <div className="text-white snap-start"></div>
     </div>
