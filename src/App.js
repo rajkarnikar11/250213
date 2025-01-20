@@ -212,7 +212,7 @@ function App() {
             <div className="demoPage" data-density="hard">
               <div className="relative page-bg flex-col items-center flex  h-[468px] w-[calc(100%-16px)] p-4 m-4 ml-0 mx-auto  outline">
                 <div className="wishing">
-                  <h6 className=" py-4 px-14 text-[60px] text-center cursive-text ">
+                  <h6 className=" py-4 px-14 text-[50px] sm:text-[60px] text-center cursive-text ">
                     Wishing <br /> you guys a happy married life...
                   </h6>
                 </div>
