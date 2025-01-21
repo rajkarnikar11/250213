@@ -11,6 +11,7 @@ import CoverImage from "./images/cover.jpg";
 import ImageViewer from "./components/ImageViewer";
 import GemsImage from "./images/gems.png";
 import Page2image from "./images/page2.jpg";
+import AnimatedSvg from "./components/AnimatedSvg";
 
 const ScrollComponent = ({ scrollPosition }) => {
   return (
@@ -55,6 +56,7 @@ function App() {
   const scrollableDivRef = useRef(null);
   const [isInView, setIsInView] = useState(false);
   const [flipped, setFlipped] = useState(false);
+  const [showAnimation, setShowAnimation] = useState(true);
 
   const handleScroll = () => {
     const position = scrollableDivRef.current.scrollTop; // Get the vertical scroll position of the element
@@ -101,10 +103,12 @@ function App() {
   useEffect(() => {
     console.log(isInView, !flipped);
     if (isInView && !flipped) {
+      setShowAnimation(false);
+
       setTimeout(() => {
         flipPages();
         setFlipped(true);
-      }, 1500);
+      }, 2500);
     }
   }, [isInView, flipped]);
 
@@ -212,9 +216,14 @@ function App() {
             <div className="demoPage" data-density="hard">
               <div className="relative page-bg flex-col items-center flex  h-[468px] w-[calc(100%-16px)] p-4 m-4 ml-0 mx-auto  outline">
                 <div className="wishing">
-                  <h6 className=" py-4 px-14 text-[50px] sm:text-[60px] text-center cursive-text ">
+                  <h6 className=" py-4 px-14 text-[43px] sm:text-[53px] text-center cursive-text ">
                     Wishing <br /> you guys a happy married life...
                   </h6>
+                  <AnimatedSvg
+                    size={" text-[40px] sm:!text-[50px]"}
+                    startAnimation={isInView}
+                    text="Rahul  ♡ Jari"
+                  />
                 </div>
                 <div className="wishing-shadow"></div>
               </div>
