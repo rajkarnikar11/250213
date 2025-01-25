@@ -184,6 +184,25 @@ svg,
   filter: blur(0.5px); /* Apply the blur effect */
   z-index: -1; /* Keep it behind the content */
 }
+
+.page-bg-2 {
+  position: relative;
+
+  overflow: hidden; /* Prevent pseudo-element overflow */
+}
+
+.page-bg-2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("./images/bg.webp") no-repeat center center;
+  background-size: cover;
+  filter: blur(0.5px); /* Apply the blur effect */
+  z-index: -1; /* Keep it behind the content */
+}
 .paper-effect {
   position: relative;
   background-color: #fef8cc; /* Paper-like background */
@@ -325,4 +344,41 @@ svg,
   to {
     stroke-dashoffset: 0;
   }
+}
+
+.book-header {
+  border: 2px solid gray;
+  background: linear-gradient(
+    130deg,
+    rgba(255, 255, 255, 0.6),
+    white,
+    rgba(255, 255, 255, 0.8),
+    white
+  );
+  color: #8b0000;
+  clip-path: polygon(
+    0% 0%,
+    5% 0%,
+    10% 50%,
+    20% 10%,
+    10% 25%,
+    0% 90%,
+    15% 80%,
+    5% 100%,
+    10% 100%,
+    100% 100%,
+    90% 50%,
+    80% 60%,
+    50% 100%,
+    5% 100%,
+    95% 95%,
+    90% 70%,
+    90% 40%,
+    100% 40%,
+    90% 40%,
+    60% 45%,
+    70% 70%,
+    85% 99%,
+    100% 0%
+  );
 }

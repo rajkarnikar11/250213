@@ -7,7 +7,8 @@ import DateComponent from "./components/DateComponent";
 import HTMLFlipBook from "react-pageflip";
 import { Page } from "./components/Page";
 import Page2 from "./components/Page2";
-import CoverImage from "./images/cover.jpg";
+import CoverImage from "./images/cover.webp";
+import SpiralImage from "./images/spiral.webp";
 import ImageViewer from "./components/ImageViewer";
 import GemsImage from "./images/gems.png";
 import Page2image from "./images/page2.jpg";
@@ -97,7 +98,7 @@ function App() {
   };
 
   useEffect(() => {
-    book?.current?.pageFlip()?.turnToPage(9);
+    book?.current?.pageFlip()?.turnToPage(10);
   }, [book?.current?.pageFlip()]);
 
   useEffect(() => {
@@ -151,8 +152,16 @@ function App() {
         <span className="text-red-600 ">s{width}s</span>
         <div
           ref={page}
-          className="flipbook-container shadow-2xl z-10 relative outline h-[500px] max-w-[500px]"
+          className="flipbook-container rounded-lg   shadow-2xl z-10 relative outline h-[500px] max-w-[500px]"
         >
+          <div className="absolute top-0 -left-1 object-cover opacity-80  z-[1] w-[40px]">
+            <img
+              style={{ width: width }}
+              className=" h-[500px] object-contain max-w-full rounded shadow-xl"
+              src={SpiralImage}
+              alt="cover"
+            />
+          </div>
           <HTMLFlipBook
             width={width > 500 ? 500 : width}
             height={300}
@@ -176,6 +185,7 @@ function App() {
             <div className="demoPage" data-density="hard">
               <ImageViewer
                 imageUrl={GemsImage}
+                header="2015"
                 text="It all began at Gems Institute of Higher Education.
 "
               />
@@ -193,7 +203,9 @@ function App() {
             <div className="demoPage" data-density="hard">
               <ImageViewer
                 imageUrl={Page2image}
+                header="2016"
                 text="started Dating
+                
 "
               />
             </div>
@@ -203,7 +215,9 @@ function App() {
             <div className="demoPage" data-density="hard">
               <ImageViewer
                 imageUrl={Page2image}
+                header="2024"
                 text="popped the question
+                
 "
               />
             </div>
@@ -214,16 +228,18 @@ function App() {
               <ImageViewer imageUrl={GemsImage} text="Forever in the clouds" />
             </div>
             <div className="demoPage" data-density="hard">
-              <div className="relative page-bg flex-col items-center flex  h-[468px] w-[calc(100%-16px)] p-4 m-4 ml-0 mx-auto  outline">
+              <ImageViewer
+                imageUrl={GemsImage}
+                header="2025/02/13"
+                text={`Rahul  ♡ Jari`}
+              />
+            </div>
+            <div className="demoPage" data-density="hard">
+              <div className="relative page-bg-2 flex-col items-center flex  h-[468px] w-[calc(100%-16px)] p-4 m-4 ml-0 mx-auto  outline">
                 <div className="wishing">
                   <h6 className=" py-4 px-14 text-[43px] sm:text-[53px] text-center cursive-text ">
                     Wishing <br /> you guys a happy married life...
                   </h6>
-                  <AnimatedSvg
-                    size={" text-[40px] sm:!text-[50px]"}
-                    startAnimation={isInView}
-                    text="Rahul  ♡ Jari"
-                  />
                 </div>
                 <div className="wishing-shadow"></div>
               </div>
@@ -232,7 +248,7 @@ function App() {
           {/* <BackInTime /> */}
           <img
             style={{ width: width }}
-            className=" h-[500px] absolute top-0 -z-[1] max-w-full rounded shadow-xl"
+            className=" h-[500px] absolute top-0 -z-[1] max-w-full shadow-xl"
             src={CoverImage}
             alt="cover"
           />
