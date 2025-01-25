@@ -12,6 +12,9 @@ import SpiralImage from "./images/spiral.webp";
 import ImageViewer from "./components/ImageViewer";
 import GemsImage from "./images/gems.png";
 import Page2image from "./images/page2.jpg";
+import Page3image from "./images/page3.png";
+import Page4image from "./images/page4.png";
+
 import AnimatedSvg from "./components/AnimatedSvg";
 
 const ScrollComponent = ({ scrollPosition }) => {
@@ -198,11 +201,11 @@ function App() {
               />
             </div>
             <div className="demoPage" data-density="hard">
-              <ImageViewer imageUrl={GemsImage} text="started talking..." />
+              <ImageViewer imageUrl={Page3image} text="started talking..." />
             </div>
             <div className="demoPage" data-density="hard">
               <ImageViewer
-                imageUrl={Page2image}
+                imageUrl={Page4image}
                 header="2016"
                 text="started Dating
                 
