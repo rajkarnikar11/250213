@@ -13,7 +13,7 @@ import ImageViewer from "./components/ImageViewer";
 import GemsImage from "./images/gems.png";
 import Page2image from "./images/page2.jpg";
 import Page3image from "./images/page3.png";
-import Page4image from "./images/page4.png";
+import Page4image from "./images/date.png";
 
 import AnimatedSvg from "./components/AnimatedSvg";
 
