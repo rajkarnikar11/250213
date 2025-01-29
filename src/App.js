@@ -54,6 +54,14 @@ const ScrollComponent = ({ scrollPosition }) => {
     </div>
   );
 };
+const SwipeComponent = ({ scrollPosition }) => {
+  return (
+    <div className="fixed text-[#fffbf7] flex items-center justify-center bottom-2 py-1 whitespace-nowrap font-bold uppercase  px-4  -translate-x-1/2 left-1/2">
+      swipe to turn pages
+      <div className="swipe" />
+    </div>
+  );
+};
 
 function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -61,6 +69,8 @@ function App() {
   const [isInView, setIsInView] = useState(false);
   const [flipped, setFlipped] = useState(false);
   const [showAnimation, setShowAnimation] = useState(true);
+  const [showSwiper, setShowSwiper] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
 
   const handleScroll = () => {
     const position = scrollableDivRef.current.scrollTop; // Get the vertical scroll position of the element
@@ -92,7 +102,6 @@ function App() {
     const currentPage = book.current.pageFlip().getCurrentPageIndex();
     const totalFlips = currentPage - 1; // Number of pages to flip to reach the second page
     const delay = 350; // Delay in milliseconds between each flip
-
     for (let i = 0; i < totalFlips; i++) {
       console.log(i, totalFlips);
       book.current.pageFlip().flipPrev("bottom"); // Flip to the previous page
@@ -103,6 +112,10 @@ function App() {
   useEffect(() => {
     book?.current?.pageFlip()?.turnToPage(10);
   }, [book?.current?.pageFlip()]);
+
+  useEffect(() => {
+    setCurrentPage(book?.current?.pageFlip()?.getCurrentPageIndex());
+  }, [book?.current?.pageFlip()?.getCurrentPageIndex()]);
 
   useEffect(() => {
     console.log(isInView, !flipped);
@@ -147,12 +160,15 @@ function App() {
       ref={scrollableDivRef}
       className="h-screen max-w-screen overflow-x-hidden overflow-y-scroll bg-[	#fffbf7] snap-y snap-mandatory"
     >
-      <ScrollComponent scrollPosition={scrollPosition} />
+      {scrollPosition < 500 && (
+        <ScrollComponent scrollPosition={scrollPosition} />
+      )}
+      {showSwiper && <SwipeComponent scrollPosition={scrollPosition} />}
       <div className="fixed top-2 left-1/2">{scrollPosition}</div>
       <SpinnerComponent scrollPosition={scrollPosition} />
 
       <div className="flex flex-col items-center justify-center h-screen text-white snap-start">
-        <span className="text-red-600 ">s{width}s</span>
+        <span className="text-red-600 ">s{currentPage}s</span>
         <div
           ref={page}
           className="flipbook-container rounded-lg   shadow-2xl z-10 relative outline h-[500px] max-w-[500px]"
@@ -174,7 +190,12 @@ function App() {
             startPage={0} // Start from the first page
             showCover={true} // Hide cover if not needed
             direction="ltr" // Flip pages from left to right
-            onFlip={(e) => console.log("Page flipped", e)} // Log flip events
+            onFlip={(e) => {
+              if (e?.data === 1) {
+                setShowSwiper(true);
+              }
+              setCurrentPage(e?.data);
+            }} // Log flip events
             flippingTime={350}
           >
             <div className="demoPage" data-density="hard">
@@ -201,13 +222,16 @@ function App() {
               />
             </div>
             <div className="demoPage" data-density="hard">
-              <ImageViewer imageUrl={Page3image} text="started talking..." />
+              <ImageViewer
+                imageUrl={Page3image}
+                text="They started talking, awkward small talk turning into banter and laughs."
+              />
             </div>
             <div className="demoPage" data-density="hard">
               <ImageViewer
                 imageUrl={Page4image}
                 header="2016"
-                text="started Dating
+                text="They started dating, realizing they were basically a perfect mess together...
                 
 "
               />
@@ -239,9 +263,9 @@ function App() {
             </div>
             <div className="demoPage" data-density="hard">
               <div className="relative page-bg-2 flex-col items-center flex  h-[468px] w-[calc(100%-16px)] p-4 m-4 ml-0 mx-auto  outline">
-                <div className="wishing">
-                  <h6 className=" py-4 px-14 text-[43px] sm:text-[53px] text-center cursive-text ">
-                    Wishing <br /> you guys a happy married life...
+                <div className="flex items-center wishing">
+                  <h6 className=" py-4 pl-10 pr-14 text-[43px]  sm:text-[53px] flex text-center cursive-text ">
+                    Congratulations on your <br></br> Forever after
                   </h6>
                 </div>
                 <div className="wishing-shadow"></div>

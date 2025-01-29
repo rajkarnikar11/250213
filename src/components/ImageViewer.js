@@ -15,7 +15,7 @@ const ImageViewer = ({ imageUrl, text, className, header }) => {
         )}
         <div className="p-2 bg-gray-100 border border-gray-700 shadow ">
           <img
-            className={` object-contain max-h-[200px] `}
+            className={` object-contain max-h-[180px] `}
             src={imageUrl}
             alt={text}
           />
