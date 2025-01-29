@@ -237,7 +237,10 @@ function App() {
               />
             </div>
             <div className="demoPage" data-density="hard">
-              <ImageViewer imageUrl={GemsImage} text="late night convos ..." />
+              <ImageViewer
+                imageUrl={GemsImage}
+                text="After many trips and many years, and countless heartfelt experiences later..."
+              />
             </div>
             <div className="demoPage" data-density="hard">
               <ImageViewer
