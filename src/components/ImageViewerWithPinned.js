@@ -1,9 +1,15 @@
 import React from "react";
 
-const ImageViewer = ({ imageUrl, text, className, header }) => {
+const ImageViewerWithPinned = ({
+  imageUrl,
+  text,
+  className,
+  header,
+  pinImage,
+}) => {
   return (
     <div
-      className={`flex relative items-center outline my-auto justify-center ${className}  `}
+      className={`flex relative items-center outline my-auto justify-center ${className} relative  `}
     >
       <div className="relative pl-10 page-bg flex-col items-center flex  h-[468px] w-[calc(100%-16px)] p-4 m-4 ml-0 mx-auto  outline">
         {header ? (
@@ -13,9 +19,16 @@ const ImageViewer = ({ imageUrl, text, className, header }) => {
         ) : (
           <div className="h-20" />
         )}
-        <div className="p-2 bg-gray-100 border border-gray-700 shadow ">
+        <div className="relative w-full p-2 bg-gray-100 border border-gray-700 shadow ">
+          <div className="absolute  tape-effect  top-0 left-0 p-1  bg-gray-100 border border-gray-700 shadow-sm -rotate-6 !h-[40%] ">
+            <img
+              className={` object-contain h-full `}
+              src={pinImage}
+              alt={text}
+            />
+          </div>
           <img
-            className={` object-contain max-h-[180px] `}
+            className={` object-cover w-full max-h-[180px] `}
             src={imageUrl}
             alt={text}
           />
@@ -28,4 +41,4 @@ const ImageViewer = ({ imageUrl, text, className, header }) => {
   );
 };
 
-export default ImageViewer;
+export default ImageViewerWithPinned;

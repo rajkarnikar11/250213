@@ -14,8 +14,16 @@ import GemsImage from "./images/gems.png";
 import Page2image from "./images/page2.jpg";
 import Page3image from "./images/page3.png";
 import Page4image from "./images/date.png";
+import FlowerImage from "./images/flower.png";
+import Collage from "./images/collageu.png";
+import Collage2 from "./images/collag2.png";
+import Collage3 from "./images/collage3.png";
+import Collage4 from "./images/collage4.png";
+import Collage1 from "./images/collage1.png";
 
 import AnimatedSvg from "./components/AnimatedSvg";
+import { CollageViewer } from "./components/CollageViewer";
+import ImageViewerWithPinned from "./components/ImageViewerWithPinned";
 
 const ScrollComponent = ({ scrollPosition }) => {
   return (
@@ -110,7 +118,7 @@ function App() {
   };
 
   useEffect(() => {
-    book?.current?.pageFlip()?.turnToPage(10);
+    book?.current?.pageFlip()?.turnToPage(6);
   }, [book?.current?.pageFlip()]);
 
   useEffect(() => {
@@ -228,19 +236,41 @@ function App() {
               />
             </div>
             <div className="demoPage" data-density="hard">
-              <ImageViewer
-                imageUrl={Page4image}
+              <ImageViewerWithPinned
+                pinImage={Page4image}
+                imageUrl={FlowerImage}
                 header="2016"
-                text="They started dating, realizing they were basically a perfect mess together...
+                text="They started dating, realizing they were basically a perfect mess together
                 
 "
               />
             </div>
             <div className="demoPage" data-density="hard">
-              <ImageViewer
-                imageUrl={GemsImage}
+              <div className="relative page-bg-2 flex-col justify-center items-center flex  h-[468px] w-[calc(100%-16px)] p-4 m-4 ml-0 mx-auto  outline">
+                <div className="p-2 bg-gray-100 border border-gray-700 shadow ">
+                  <img
+                    className={` object-contain max-h-[280px] `}
+                    src={FlowerImage}
+                    alt={"flower"}
+                  />
+                </div>
+                <p className=" p-2 mt-4 min-w-[200px] text-center text-2xl paper-effect max-w-[90%] text-gray-900 bg-opacity-90 border-2 border-[#433e36]  backdrop-blur-sm  story ">
+                  ...
+                </p>
+              </div>
+            </div>
+            <div className="demoPage" data-density="hard">
+              <CollageViewer
+                image1={Collage1}
+                image2={Collage2}
+                image3={Collage3}
+                image4={Collage4}
                 text="After many trips and many years, and countless heartfelt experiences later..."
               />
+              {/* <ImageViewer
+                imageUrl={Collage}
+                text="After many trips and many years, and countless heartfelt experiences later..."
+              /> */}
             </div>
             <div className="demoPage" data-density="hard">
               <ImageViewer
