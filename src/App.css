@@ -446,3 +446,7 @@ svg,
     100% 0% /* Top-right straight */
   );
 }
+
+.demoPage {
+  height: 500px !important;
+}

@@ -118,7 +118,7 @@ function App() {
   };
 
   useEffect(() => {
-    book?.current?.pageFlip()?.turnToPage(6);
+    book?.current?.pageFlip()?.turnToPage(10);
   }, [book?.current?.pageFlip()]);
 
   useEffect(() => {
@@ -245,20 +245,7 @@ function App() {
 "
               />
             </div>
-            <div className="demoPage" data-density="hard">
-              <div className="relative page-bg-2 flex-col justify-center items-center flex  h-[468px] w-[calc(100%-16px)] p-4 m-4 ml-0 mx-auto  outline">
-                <div className="p-2 bg-gray-100 border border-gray-700 shadow ">
-                  <img
-                    className={` object-contain max-h-[280px] `}
-                    src={FlowerImage}
-                    alt={"flower"}
-                  />
-                </div>
-                <p className=" p-2 mt-4 min-w-[200px] text-center text-2xl paper-effect max-w-[90%] text-gray-900 bg-opacity-90 border-2 border-[#433e36]  backdrop-blur-sm  story ">
-                  ...
-                </p>
-              </div>
-            </div>
+
             <div className="demoPage" data-density="hard">
               <CollageViewer
                 image1={Collage1}

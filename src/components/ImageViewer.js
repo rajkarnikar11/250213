@@ -3,9 +3,9 @@ import React from "react";
 const ImageViewer = ({ imageUrl, text, className, header }) => {
   return (
     <div
-      className={`flex relative items-center outline my-auto justify-center ${className}  `}
+      className={`flex relative items-center outline outline-black  my-auto justify-center ${className}  `}
     >
-      <div className="relative pl-10 page-bg flex-col items-center flex  h-[468px] w-[calc(100%-16px)] p-4 m-4 ml-0 mx-auto  outline">
+      <div className="relative pl-10 border-2 border-gray-900 page-bg flex-col items-center flex  h-[468px] w-[calc(100%-16px)] p-4 m-4 ml-0 mx-auto  ">
         {header ? (
           <h6 className="book-header px-8 py-1 mb-6 font-medium mt-2 text-[40px] max-w-[90%] text-gray-900 bg-opacity-90 border-2 border-[#433e36]  story ">
             {header}
