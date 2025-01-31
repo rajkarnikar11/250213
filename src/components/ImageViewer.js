@@ -1,6 +1,6 @@
 import React from "react";
 
-const ImageViewer = ({ imageUrl, text, className, header }) => {
+const ImageViewer = ({ imageUrl, text, className, header, textClass }) => {
   return (
     <div
       className={`flex relative items-center outline outline-black  my-auto justify-center  `}
@@ -22,7 +22,7 @@ const ImageViewer = ({ imageUrl, text, className, header }) => {
         </div>
         <p
           dangerouslySetInnerHTML={{ __html: text }}
-          className=" p-2 mt-4 min-w-[200px] text-center text-2xl paper-effect max-w-[90%] text-gray-900 bg-opacity-90 border-2 border-[#433e36]  backdrop-blur-sm  story "
+          className={`${textClass} p-2 mt-4 min-w-[200px] text-center text-2xl paper-effect max-w-[90%] text-gray-900 bg-opacity-90 border-2 border-[#433e36]  backdrop-blur-sm  story `}
         >
           {/* {text} */}
         </p>

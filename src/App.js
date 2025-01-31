@@ -283,6 +283,7 @@ function App() {
             <div className="demoPage" data-density="hard">
               <ImageViewer
                 className={" !max-h-[250px]"}
+                textClass={"!p-2"}
                 imageUrl={Cloud}
                 text="This story will forever remain in the cloud as a testament to your love for each other.."
               />
