@@ -51,7 +51,7 @@ export const CollageViewer = ({
             />
           </div>
         </div>
-        <p className=" p-2 mt-4 min-w-[200px] text-center text-2xl paper-effect max-w-[90%] text-gray-900 bg-opacity-90 border-2 border-[#433e36]  backdrop-blur-sm  story ">
+        <p className=" !p-2 mt-4 min-w-[200px] text-center text-2xl paper-effect max-w-[90%] text-gray-900 bg-opacity-90 border-2 border-[#433e36]  backdrop-blur-sm  story ">
           {text}
         </p>
       </div>

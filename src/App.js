@@ -20,6 +20,8 @@ import Collage2 from "./images/collag2.png";
 import Collage3 from "./images/collage3.png";
 import Collage4 from "./images/collage4.png";
 import Collage1 from "./images/collage1.png";
+import Popped from "./images/popped-car.png";
+import Yes from "./images/yes.png";
 
 import AnimatedSvg from "./components/AnimatedSvg";
 import { CollageViewer } from "./components/CollageViewer";
@@ -261,15 +263,15 @@ function App() {
             </div>
             <div className="demoPage" data-density="hard">
               <ImageViewer
-                imageUrl={Page2image}
+                imageUrl={Popped}
                 header="2024"
-                text="popped the question
+                text="Finally!!! </br> He popped the question.
                 
 "
               />
             </div>
             <div className="demoPage" data-density="hard">
-              <ImageViewer imageUrl={Page2image} text="She said yes" />
+              <ImageViewer imageUrl={Yes} text="She said yes!!" />
             </div>
             <div className="demoPage" data-density="hard">
               <ImageViewer imageUrl={GemsImage} text="Forever in the clouds" />
