@@ -22,6 +22,8 @@ import Collage4 from "./images/collage4.png";
 import Collage1 from "./images/collage1.png";
 import Popped from "./images/popped-car.png";
 import Yes from "./images/yes.png";
+import Guffy from "./images/guffy.png";
+import Cloud from "./images/cloud.png";
 
 import AnimatedSvg from "./components/AnimatedSvg";
 import { CollageViewer } from "./components/CollageViewer";
@@ -232,8 +234,9 @@ function App() {
               />
             </div>
             <div className="demoPage" data-density="hard">
-              <ImageViewer
+              <ImageViewerWithPinned
                 imageUrl={Page3image}
+                pinImage={Guffy}
                 text="They started talking, awkward small talk turning into banter and laughs."
               />
             </div>
@@ -271,10 +274,18 @@ function App() {
               />
             </div>
             <div className="demoPage" data-density="hard">
-              <ImageViewer imageUrl={Yes} text="She said yes!!" />
+              <ImageViewer
+                className={" !max-h-[280px]"}
+                imageUrl={Yes}
+                text="She said yes!!"
+              />
             </div>
             <div className="demoPage" data-density="hard">
-              <ImageViewer imageUrl={GemsImage} text="Forever in the clouds" />
+              <ImageViewer
+                className={" !max-h-[250px]"}
+                imageUrl={Cloud}
+                text="This story will forever remain in the cloud as a testament to your love for each other.."
+              />
             </div>
             <div className="demoPage" data-density="hard">
               <ImageViewer

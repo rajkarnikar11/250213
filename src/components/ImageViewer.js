@@ -3,7 +3,7 @@ import React from "react";
 const ImageViewer = ({ imageUrl, text, className, header }) => {
   return (
     <div
-      className={`flex relative items-center outline outline-black  my-auto justify-center ${className}  `}
+      className={`flex relative items-center outline outline-black  my-auto justify-center  `}
     >
       <div className="relative pl-10 border-2 border-gray-900 page-bg flex-col items-center flex  h-[468px] w-[calc(100%-16px)] p-4 m-4 ml-0 mx-auto  ">
         {header ? (
@@ -15,7 +15,7 @@ const ImageViewer = ({ imageUrl, text, className, header }) => {
         )}
         <div className="p-2 bg-gray-100 border border-gray-700 shadow ">
           <img
-            className={` object-contain max-h-[180px] `}
+            className={` object-contain max-h-[180px] ${className}  `}
             src={imageUrl}
             alt={text}
           />
