@@ -11,7 +11,7 @@ import CoverImage from "./images/cover.webp";
 import SpiralImage from "./images/spiral.webp";
 import ImageViewer from "./components/ImageViewer";
 import GemsImage from "./images/gems.png";
-import Page2image from "./images/page2.jpg";
+import Page2image from "./images/page2.png";
 import Page3image from "./images/page3.png";
 import Page4image from "./images/date.png";
 import FlowerImage from "./images/flower.png";
@@ -175,12 +175,12 @@ function App() {
       {scrollPosition < 500 && (
         <ScrollComponent scrollPosition={scrollPosition} />
       )}
-      {showSwiper && <SwipeComponent scrollPosition={scrollPosition} />}
-      <div className="fixed top-2 left-1/2">{scrollPosition}</div>
+      {showSwiper && scrollPosition > 500 && (
+        <SwipeComponent scrollPosition={scrollPosition} />
+      )}
       <SpinnerComponent scrollPosition={scrollPosition} />
 
       <div className="flex flex-col items-center justify-center h-screen text-white snap-start">
-        <span className="text-red-600 ">s{currentPage}s</span>
         <div
           ref={page}
           className="flipbook-container rounded-lg   shadow-2xl z-10 relative outline h-[500px] max-w-[500px]"
@@ -235,14 +235,14 @@ function App() {
             </div>
             <div className="demoPage" data-density="hard">
               <ImageViewerWithPinned
-                imageUrl={Page3image}
+                imageUrl={Page4image}
                 pinImage={Guffy}
                 text="They started talking, awkward small talk turning into banter and laughs."
               />
             </div>
             <div className="demoPage" data-density="hard">
               <ImageViewerWithPinned
-                pinImage={Page4image}
+                pinImage={Page3image}
                 imageUrl={FlowerImage}
                 header="2016"
                 text="They started dating, realizing they were basically a perfect mess together
