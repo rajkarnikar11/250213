@@ -180,139 +180,141 @@ function App() {
       )}
       <SpinnerComponent scrollPosition={scrollPosition} />
 
-      <div className="flex flex-col items-center justify-center h-screen text-white snap-start">
-        <div
-          ref={page}
-          className="flipbook-container rounded-lg   shadow-2xl z-10 relative outline h-[500px] max-w-[500px]"
-        >
-          <div className="absolute top-0 -left-1 object-cover opacity-80  z-[1] w-[40px]">
-            <img
-              style={{ width: width }}
-              className=" h-[500px] object-contain max-w-full rounded shadow-xl"
-              src={SpiralImage}
-              alt="cover"
-            />
-          </div>
-          <HTMLFlipBook
-            width={width > 500 ? 500 : width}
-            height={300}
-            ref={book}
-            usePortrait={true} // Enables portrait mode
-            mobileScrollSupport={true} // Ensures smooth scrolling on mobile
-            startPage={0} // Start from the first page
-            showCover={true} // Hide cover if not needed
-            direction="ltr" // Flip pages from left to right
-            onFlip={(e) => {
-              if (e?.data === 1) {
-                setShowSwiper(true);
-              }
-              setCurrentPage(e?.data);
-            }} // Log flip events
-            flippingTime={350}
+      <div className="flex flex-col items-center justify-center h-screen text-white desk-bg snap-start">
+        <div className="book-shadow">
+          <div
+            ref={page}
+            className="flipbook-container rounded-lg shadow-2xl z-10 relative  h-[500px] max-w-[500px]"
           >
-            <div className="demoPage" data-density="hard">
+            <div className="absolute top-0 -left-1 object-cover opacity-80  z-[1] w-[40px]">
               <img
                 style={{ width: width }}
-                className=" h-[500px] max-w-full rounded shadow-xl"
-                src={CoverImage}
+                className=" h-[500px] object-contain max-w-full rounded shadow-xl"
+                src={SpiralImage}
                 alt="cover"
               />
             </div>
-            <div className="demoPage" data-density="hard">
-              <ImageViewer
-                imageUrl={GemsImage}
-                header="2015"
-                text="It all began at Gems Institute of Higher Education.
+            <HTMLFlipBook
+              width={width > 500 ? 500 : width}
+              height={300}
+              ref={book}
+              usePortrait={true} // Enables portrait mode
+              mobileScrollSupport={true} // Ensures smooth scrolling on mobile
+              startPage={0} // Start from the first page
+              showCover={true} // Hide cover if not needed
+              direction="ltr" // Flip pages from left to right
+              onFlip={(e) => {
+                if (e?.data === 1) {
+                  setShowSwiper(true);
+                }
+                setCurrentPage(e?.data);
+              }} // Log flip events
+              flippingTime={350}
+            >
+              <div className="demoPage" data-density="hard">
+                <img
+                  style={{ width: width }}
+                  className=" h-[500px] max-w-full rounded shadow-xl"
+                  src={CoverImage}
+                  alt="cover"
+                />
+              </div>
+              <div className="demoPage" data-density="hard">
+                <ImageViewer
+                  imageUrl={GemsImage}
+                  header="2015"
+                  text="It all began at Gems Institute of Higher Education.
 "
-              />
-            </div>
-            <div className="demoPage" data-density="hard">
-              <ImageViewer
-                imageUrl={Page2image}
-                text="She noticed him through the classroom window...
+                />
+              </div>
+              <div className="demoPage" data-density="hard">
+                <ImageViewer
+                  imageUrl={Page2image}
+                  text="She noticed him through the classroom window...
 "
-              />
-            </div>
-            <div className="demoPage" data-density="hard">
-              <ImageViewerWithPinned
-                imageUrl={Page4image}
-                pinImage={Guffy}
-                text="They started talking, awkward small talk turning into banter and laughs."
-              />
-            </div>
-            <div className="demoPage" data-density="hard">
-              <ImageViewerWithPinned
-                pinImage={Page3image}
-                imageUrl={FlowerImage}
-                header="2016"
-                text="They started dating, realizing they were basically a perfect mess together
+                />
+              </div>
+              <div className="demoPage" data-density="hard">
+                <ImageViewerWithPinned
+                  imageUrl={Page4image}
+                  pinImage={Guffy}
+                  text="They started talking, awkward small talk turning into banter and laughs."
+                />
+              </div>
+              <div className="demoPage" data-density="hard">
+                <ImageViewerWithPinned
+                  pinImage={Page3image}
+                  imageUrl={FlowerImage}
+                  header="2016"
+                  text="They started dating, realizing they were basically a perfect mess together
                 
 "
-              />
-            </div>
+                />
+              </div>
 
-            <div className="demoPage" data-density="hard">
-              <CollageViewer
-                image1={Collage1}
-                image2={Collage2}
-                image3={Collage3}
-                image4={Collage4}
-                text="After many trips and many years, and countless heartfelt experiences later..."
-              />
-              {/* <ImageViewer
+              <div className="demoPage" data-density="hard">
+                <CollageViewer
+                  image1={Collage1}
+                  image2={Collage2}
+                  image3={Collage3}
+                  image4={Collage4}
+                  text="After many trips and many years, and countless heartfelt experiences later..."
+                />
+                {/* <ImageViewer
                 imageUrl={Collage}
                 text="After many trips and many years, and countless heartfelt experiences later..."
               /> */}
-            </div>
-            <div className="demoPage" data-density="hard">
-              <ImageViewer
-                imageUrl={Popped}
-                header="2024"
-                text="Finally!!! </br> He popped the question.
+              </div>
+              <div className="demoPage" data-density="hard">
+                <ImageViewer
+                  imageUrl={Popped}
+                  header="2024"
+                  text="Finally!!! </br> He popped the question.
                 
 "
-              />
-            </div>
-            <div className="demoPage" data-density="hard">
-              <ImageViewer
-                className={" !max-h-[280px]"}
-                imageUrl={Yes}
-                text="She said yes!!"
-              />
-            </div>
-            <div className="demoPage" data-density="hard">
-              <ImageViewer
-                className={" !max-h-[250px]"}
-                textClass={"!p-2"}
-                imageUrl={Cloud}
-                text="This story will forever remain in the cloud as a testament to your love for each other.."
-              />
-            </div>
-            <div className="demoPage" data-density="hard">
-              <ImageViewer
-                imageUrl={GemsImage}
-                header="2025/02/13"
-                text={`Rahul  ♡ Jari`}
-              />
-            </div>
-            <div className="demoPage" data-density="hard">
-              <div className="relative page-bg-2 flex-col items-center flex  h-[468px] w-[calc(100%-16px)] p-4 m-4 ml-0 mx-auto  outline">
-                <div className="flex items-center wishing">
-                  <h6 className=" py-4 pl-10 pr-14 text-[43px]  sm:text-[53px] flex text-center cursive-text ">
-                    Congratulations on your <br></br> Forever after
-                  </h6>
-                </div>
-                <div className="wishing-shadow"></div>
+                />
               </div>
-            </div>
-          </HTMLFlipBook>
-          {/* <BackInTime /> */}
-          <img
-            style={{ width: width }}
-            className=" h-[500px] absolute top-0 -z-[1] max-w-full shadow-xl"
-            src={CoverImage}
-            alt="cover"
-          />
+              <div className="demoPage" data-density="hard">
+                <ImageViewer
+                  className={" !max-h-[280px]"}
+                  imageUrl={Yes}
+                  text="She said yes!!"
+                />
+              </div>
+              <div className="demoPage" data-density="hard">
+                <ImageViewer
+                  className={" !max-h-[250px]"}
+                  textClass={"!p-2"}
+                  imageUrl={Cloud}
+                  text="This story will forever remain in the cloud as a testament to your love for each other.."
+                />
+              </div>
+              <div className="demoPage" data-density="hard">
+                <ImageViewer
+                  imageUrl={GemsImage}
+                  header="2025/02/13"
+                  text={`Rahul  ♡ Jari`}
+                />
+              </div>
+              <div className="demoPage" data-density="hard">
+                <div className="relative page-bg-2 flex-col items-center flex  h-[468px] w-[calc(100%-16px)] p-4 m-4 ml-0 mx-auto  outline">
+                  <div className="flex items-center wishing">
+                    <h6 className=" py-4 pl-10 pr-14 text-[43px]  sm:text-[53px] flex text-center cursive-text ">
+                      Congratulations on your <br></br> Forever after
+                    </h6>
+                  </div>
+                  <div className="wishing-shadow"></div>
+                </div>
+              </div>
+            </HTMLFlipBook>
+            {/* <BackInTime /> */}
+            <img
+              style={{ width: width }}
+              className=" h-[500px] absolute top-0 -z-[1] max-w-full shadow-xl"
+              src={CoverImage}
+              alt="cover"
+            />
+          </div>
         </div>
       </div>
       <div className="text-white snap-start"></div>

@@ -5,7 +5,7 @@ const AnimatedSvg = ({ text, startAnimation, size }) => {
     <div className={` text-left ${startAnimation ? "animation-svg" : ""} `}>
       {" "}
       <div
-        className={` ${size} text-[30px] sm:text-[100px]  text-center whitespace-nowrap cursive-text `}
+        className={` ${size} text-shadow-sm text-[30px] sm:text-[100px]  text-center whitespace-nowrap cursive-text `}
       >
         {text}
       </div>

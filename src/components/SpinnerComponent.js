@@ -14,7 +14,7 @@ export const SpinnerComponent = ({ scrollPosition }) => {
   const svgRef = useRef(null);
 
   return (
-    <div className="relative flex items-start justify-center h-screen overflow-hidden snap-start">
+    <div className="relative flex items-start justify-center h-screen overflow-hidden hero-bg snap-start">
       <div
         className={`  absolute text-[#dea193] top-1/2 -translate-y-1/2 duration-300 scale-[55%] xs:scale-[70%]   h-[400px]  sm:w-[1000px] `}
       >
@@ -23,13 +23,19 @@ export const SpinnerComponent = ({ scrollPosition }) => {
           startAnimation={true}
           text="When two wild souls unite"
         />
-        <div className="flex justify-center max-w-screen opacity-70 ">
-          <NumberCounter startAnimation={true} count={2} />
-          <NumberCounter startAnimation={true} count={5} />
-          <NumberCounter startAnimation={true} count={0} />
-          <NumberCounter startAnimation={true} count={2} />
-          <NumberCounter startAnimation={true} count={1} />
-          <NumberCounter startAnimation={true} count={3} />
+        <div className="flex justify-center space-x-4 max-w-screen opacity-70 ">
+          <div className="flex ">
+            <NumberCounter startAnimation={true} count={2} />
+            <NumberCounter startAnimation={true} count={5} />
+          </div>
+          <div className="flex ">
+            <NumberCounter startAnimation={true} count={0} />
+            <NumberCounter startAnimation={true} count={2} />
+          </div>
+          <div className="flex ">
+            <NumberCounter startAnimation={true} count={1} />
+            <NumberCounter startAnimation={true} count={3} />
+          </div>
         </div>
       </div>
     </div>

@@ -13,7 +13,7 @@ export const NumberCounter = ({ startAnimation, count }) => {
         >
           {number.map((num) => (
             <div
-              className="h-[200px] montserrat sm:leading-[200px] leading-[100px] text-[100px] sm:text-[200px] text-[#dea193]  "
+              className="h-[200px] text-shadow montserrat sm:leading-[200px] leading-[100px] text-[100px] sm:text-[200px] text-[#dea193]  "
               key={num}
             >
               {num}

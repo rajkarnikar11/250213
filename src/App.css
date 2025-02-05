@@ -22,13 +22,14 @@ body {
 
 .scroll-indicator {
   animation: chevronUpAnimation 1.5s infinite linear;
+  rotate: 180deg;
 }
 
 @keyframes chevronUpAnimation {
   0% {
     transform: translateY(0);
   }
-  10% {
+  90% {
     transform: translateY(-6px);
   }
   100% {
@@ -446,7 +447,41 @@ svg,
     100% 0% /* Top-right straight */
   );
 }
+.desk-bg {
+  background: linear-gradient(
+      to bottom,
+      /* Gradient direction */ rgba(255, 255, 255, 1) 0%,
+      /* Fully white at the top */ rgba(255, 255, 255, 0.6) 25%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0.2) 100% /* More transparent at the bottom */
+    ),
+    url("./images/desk-bg.webp") no-repeat center 30%; /* Background image centered, shifted 30% down */
+  background-size: cover;
+}
+
+.hero-bg {
+  position: relative;
+}
 
 .demoPage {
   height: 500px !important;
+}
+
+.book-shadow {
+  box-shadow: -25px 15px 35px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+}
+
+.stf__hardShadow {
+  height: 500px !important;
+}
+
+.text-shadow-sm {
+  text-shadow: 1px 1px 0px white, -1px -1px 0px white, -1px 1px 0px white,
+    1px -1px 0px white;
+}
+
+.text-shadow {
+  text-shadow: 4px 4px 0px white, -4px -4px 0px white, -4px 4px 0px white,
+    4px -4px 0px white;
 }
