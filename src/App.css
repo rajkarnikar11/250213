@@ -485,3 +485,26 @@ svg,
   text-shadow: 4px 4px 0px white, -4px -4px 0px white, -4px 4px 0px white,
     4px -4px 0px white;
 }
+
+.hero-bg {
+  position: relative;
+}
+.hero-bg::before {
+  content: " "; /* Required for the pseudo-element */
+  background: linear-gradient(
+    to bottom,
+    /* Gradient direction */ rgba(239, 132, 132, 0.1) 0%,
+
+    rgba(255, 255, 255, 0.4) 40%,
+    rgba(255, 255, 255, 1) 100% /* More transparent at the bottom */
+  );
+
+  position: absolute;
+  background-size: 100% auto; /* Full width, adjust height proportionally */
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  overflow: hidden;
+}

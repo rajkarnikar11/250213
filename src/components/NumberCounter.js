@@ -9,7 +9,7 @@ export const NumberCounter = ({ startAnimation, count }) => {
           style={{
             "--count": count,
           }}
-          className={` ${startAnimation ? "num-scroll" : ""} h-[100px] -ml-2`}
+          className={` ${startAnimation ? "num-scroll" : ""} h-[100px]  `}
         >
           {number.map((num) => (
             <div

@@ -31,7 +31,7 @@ import ImageViewerWithPinned from "./components/ImageViewerWithPinned";
 
 const ScrollComponent = ({ scrollPosition }) => {
   return (
-    <div className="fixed text-[#fffbf7] flex items-center justify-center bottom-0 py-1 whitespace-nowrap font-bold uppercase rounded-t-xl px-4 bg-[#dea193] -translate-x-1/2 left-1/2">
+    <div className="fixed text-[#fffbf7] flex items-center justify-center bottom-0 py-1 whitespace-nowrap font-bold uppercase rounded-t-xl px-4 bg-[#dea193] z-50 -translate-x-1/2 left-1/2">
       <div className="scroll-indicator">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@ const ScrollComponent = ({ scrollPosition }) => {
 };
 const SwipeComponent = ({ scrollPosition }) => {
   return (
-    <div className="fixed text-[#fffbf7] flex items-center justify-center bottom-2 py-1 whitespace-nowrap font-bold uppercase  px-4  -translate-x-1/2 left-1/2">
+    <div className="fixed text-[#fffbf7] flex z-50 items-center justify-center bottom-2 py-1 whitespace-nowrap font-bold uppercase  px-4  -translate-x-1/2 left-1/2">
       swipe to turn pages
       <div className="swipe" />
     </div>
