@@ -13,7 +13,7 @@ const ImageViewerWithPinned = ({
     >
       <div className="relative pl-10 page-bg flex-col items-center flex  h-[468px] w-[calc(100%-16px)] py-3 px-4 m-4 ml-0 mx-auto border-2 border-gray-900 ">
         {header ? (
-          <h6 className="book-header px-8 py-1 mb-4 font-medium mt-2 text-[40px] max-w-[90%] text-gray-900 bg-opacity-90 border-2 border-[#433e36]  story ">
+          <h6 className="book-header px-8  mb-4 font-medium mt-2 text-[40px] max-w-[90%] text-gray-900 bg-opacity-90 border-2 border-[#433e36]  story ">
             {header}
           </h6>
         ) : (

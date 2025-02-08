@@ -69,11 +69,11 @@ svg,
 }
 
 .minute-hand {
-  animation: rotate 2s linear infinite; /* 1 minute for a full rotation, 10x faster */
+  animation: rotate 0.5s linear infinite; /* 1 minute for a full rotation, 10x faster */
 }
 
 .hour-hand {
-  animation: rotate 24s linear infinite; /* 12 hours for a full rotation, 10x faster */
+  animation: rotate 6s linear infinite; /* 12 hours for a full rotation, 10x faster */
 }
 
 .Typewriter__wrapper {
@@ -492,13 +492,14 @@ svg,
 .hero-bg::before {
   content: " "; /* Required for the pseudo-element */
   background: linear-gradient(
-    to bottom,
-    /* Gradient direction */ rgba(239, 132, 132, 0.1) 0%,
-
-    rgba(255, 255, 255, 0.4) 40%,
-    rgba(255, 255, 255, 1) 100% /* More transparent at the bottom */
-  );
-
+      to bottom,
+      rgba(248, 248, 248, 0.7) 0%,
+      rgba(255, 255, 255, 0.95) 50%,
+      rgba(255, 255, 255, 0.8) 70%,
+      /* Comma added here */ rgba(255, 255, 255, 1) 85%
+    ),
+    url("./images/hero-bg.jpg");
+  filter: blur(1px) grayscale(100%);
   position: absolute;
   background-size: 100% auto; /* Full width, adjust height proportionally */
   object-fit: cover;

@@ -24,6 +24,7 @@ import Popped from "./images/popped-car.png";
 import Yes from "./images/yes.png";
 import Guffy from "./images/guffy.png";
 import Cloud from "./images/cloud.png";
+import Genius from "./images/genius.png";
 
 import AnimatedSvg from "./components/AnimatedSvg";
 import { CollageViewer } from "./components/CollageViewer";
@@ -75,6 +76,8 @@ const SwipeComponent = ({ scrollPosition }) => {
   );
 };
 
+const TOTAL_PAGE = 11;
+
 function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
   const scrollableDivRef = useRef(null);
@@ -122,7 +125,7 @@ function App() {
   };
 
   useEffect(() => {
-    book?.current?.pageFlip()?.turnToPage(10);
+    book?.current?.pageFlip()?.turnToPage(TOTAL_PAGE);
   }, [book?.current?.pageFlip()]);
 
   useEffect(() => {
@@ -194,6 +197,15 @@ function App() {
                 alt="cover"
               />
             </div>
+            {!showSwiper && (
+              <div
+                className={`absolute top-0 flex items-center justify-center opacity-30  h-full  !z-[1000] w-full ${
+                  currentPage == TOTAL_PAGE ? " !opacity-0" : ""
+                } `}
+              >
+                <BackInTime />
+              </div>
+            )}
             <HTMLFlipBook
               width={width > 500 ? 500 : width}
               height={300}
@@ -235,6 +247,14 @@ function App() {
                 />
               </div>
               <div className="demoPage" data-density="hard">
+                <ImageViewer
+                  imageUrl={Genius}
+                  className="!max-h-[220px]"
+                  text="And she made her presence known — just enough
+"
+                />
+              </div>
+              <div className="demoPage" data-density="hard">
                 <ImageViewerWithPinned
                   imageUrl={Page4image}
                   pinImage={Guffy}
@@ -269,6 +289,8 @@ function App() {
                 <ImageViewer
                   imageUrl={Popped}
                   header="2024"
+                  className="!max-h-[220px]"
+                  textClass="!pb-1 !mt-2 "
                   text="Finally!!! </br> He popped the question.
                 
 "

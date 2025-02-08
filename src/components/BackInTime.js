@@ -36,17 +36,10 @@ const BackInTime = () => {
 
   return (
     <div
-      className="relative text-[#dea193] outline h-screen flex py-8 justify-evenly items-center flex-col "
+      className="relative text-[#dea193]  h-screen flex py-8 justify-evenly items-center flex-col "
       ref={elementRef}
     >
-      <h6
-        className={`${
-          fitText ? "scale-[100%]" : " scale-[1000%] translate-y-[500%]"
-        } opacity-70  montserrat text-[12vw] text-center px-2 sm:text-[5vw] capitalize w-screen  font-bold duration-500 `}
-      >
-        But First!!!
-      </h6>
-      <div className="relative w-[200px] mx-auto outline">
+      <div className="relative w-[200px] mx-auto ">
         <div
           className={`w-full ${
             startAnimation ? "minute-hand" : ""
@@ -94,17 +87,6 @@ const BackInTime = () => {
             9
           </text>
         </svg>
-      </div>
-      <div
-        className={` ${
-          startAnimation ? "opacity-100" : "opacity-0"
-        } sm:w-[1000px]  `}
-      >
-        <AnimatedSvg
-          size={"!text-[30px]"}
-          startAnimation={startAnimation}
-          text="Let's take a step back in time..."
-        />
       </div>
     </div>
   );
