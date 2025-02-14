@@ -1,6 +1,13 @@
 import React from "react";
 
-const ImageViewer = ({ imageUrl, text, className, header, textClass }) => {
+const ImageViewer = ({
+  imageUrl,
+  text,
+  className,
+  header,
+  textClass,
+  background,
+}) => {
   return (
     <div
       className={`flex relative items-center outline outline-black  my-auto justify-center  `}
@@ -13,7 +20,9 @@ const ImageViewer = ({ imageUrl, text, className, header, textClass }) => {
         ) : (
           <div className="h-20" />
         )}
-        <div className="p-2 bg-gray-100 border border-gray-700 shadow ">
+        <div
+          className={`p-2 bg-gray-100  border border-gray-700 shadow ${background} `}
+        >
           <img
             className={` object-contain max-h-[180px] ${className}  `}
             src={imageUrl}

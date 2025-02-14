@@ -25,6 +25,7 @@ import Yes from "./images/yes.png";
 import Guffy from "./images/guffy.png";
 import Cloud from "./images/cloud.png";
 import Genius from "./images/genius.png";
+import RaulJari from "./images/rauljari.png";
 
 import AnimatedSvg from "./components/AnimatedSvg";
 import { CollageViewer } from "./components/CollageViewer";
@@ -189,14 +190,19 @@ function App() {
             ref={page}
             className="flipbook-container rounded-lg shadow-2xl z-10 relative  h-[500px] max-w-[500px]"
           >
-            <div className="absolute top-0 -left-1 object-cover opacity-80  z-[1] w-[40px]">
+            <div className="absolute top-0  -left-1 object-cover opacity-80  z-[1] w-[40px]">
+              <div
+                className="bok-after"
+                onClick={() => book.current.pageFlip().flipPrev("top")}
+              />{" "}
               <img
                 style={{ width: width }}
-                className=" h-[500px] object-contain max-w-full rounded shadow-xl"
+                className=" h-[500px] object-contain max-w-full  rounded shadow-xl"
                 src={SpiralImage}
                 alt="cover"
               />
             </div>
+
             {!showSwiper && (
               <div
                 className={`absolute top-0 flex items-center justify-center opacity-30  h-full  !z-[1000] w-full ${
@@ -249,7 +255,8 @@ function App() {
               <div className="demoPage" data-density="hard">
                 <ImageViewer
                   imageUrl={Genius}
-                  className="!max-h-[220px]"
+                  background="h-[180px] relative"
+                  className="!h-[250px] !w-[300px] block  !max-h-[250px] -translate-y-[70px]  bottom-0"
                   text="And she made her presence known — just enough
 "
                 />
@@ -313,7 +320,7 @@ function App() {
               </div>
               <div className="demoPage" data-density="hard">
                 <ImageViewer
-                  imageUrl={GemsImage}
+                  imageUrl={RaulJari}
                   header="2025/02/13"
                   text={`Rahul  ♡ Jari`}
                 />

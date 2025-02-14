@@ -147,13 +147,13 @@ svg,
   /* max-width: 500px;  */
   margin: 0 auto; /* Optional: Center */
 }
-.flipbook-container::after {
+.bok-after {
   position: absolute;
   content: " ";
   height: 100%;
   width: 80px;
   top: 0;
-  left: 0;
+  left: 00px;
   z-index: 1;
   background: linear-gradient(
     to left,
